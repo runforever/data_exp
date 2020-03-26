@@ -144,6 +144,8 @@ print(i)
 # 0.045
 ```
 
+分析代码位于 [https://github.com/runforever/data_exp/blob/master/src/Astock_fund.ipynb](https://github.com/runforever/data_exp/blob/master/src/Astock_fund.ipynb)
+
 ### 结论
 1. 经过多次抽样，样本 3 年业绩中亏损和盈利的比例为 4:6，60% 左右的基金是盈利的，零假设 10% 的基金赚钱不成立。
 2. 成立 5 年以上的基金 462家，直接分析总数据中 5 年业绩中亏损和盈利的比例为 2:8，80% 左右的基金是盈利的，零假设 10% 的基金赚钱不成立。
