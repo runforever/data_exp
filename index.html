@@ -11,23 +11,25 @@
     />
     <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
     <link rel="stylesheet" href="//unpkg.com/katex/dist/katex.min.css" />
+    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"
   </head>
   <body>
     <div id="app"></div>
+    <div id="gitalk-container"></div>
     <script>
       window.$docsify = {
         loadSidebar: true,
         name: "数据漫游",
         repo: "",
         plugins: [
-          function(hook) {
-            hook.beforeEach(function(content) {
-              return content.replace(/\>\>([\s\S]*?)\>\>/g, function(m, code) {
+          function (hook) {
+            hook.beforeEach(function (content) {
+              return content.replace(/\>\>([\s\S]*?)\>\>/g, function (m, code) {
                 return katex.renderToString(code);
               });
             });
           },
-          function(hook) {
+          function (hook) {
             var footer = [
               "<hr/>",
               "<footer>",
@@ -35,18 +37,32 @@
               "也可以到 <a href='https://github.com/runforever/data_exp' target='_blank'>GitHub</a> 提 issue 探讨问题，",
               "觉得文章写得不错请到 <a href='https://github.com/runforever/data_exp' target='_blank'>GitHub</a> 上点 Star 收藏。<p/>",
               '<span><a href="http://www.beian.miit.gov.cn/" target="_blank">蜀ICP备16025642号-2</a></span>',
-              "</footer>"
+              "</footer>",
             ].join("");
 
-            hook.afterEach(function(html) {
+            hook.afterEach(function (html) {
               return html + footer;
             });
-          }
-        ]
+          },
+        ],
       };
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
     <script src="//unpkg.com/katex/dist/katex.min.js"></script>
     <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
+    <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+      var gitalk = new Gitalk({
+        clientID: "8bb4a5c3c9ac9d672945",
+        clientSecret: "11aaa03d39ffc6e6dae6f4bf444bfc12344318b1",
+        repo: "gitalk-comment",
+        owner: "runforever",
+        admin: ["runforever"],
+        id: location.pathname, // Ensure uniqueness and length less than 50
+        distractionFreeMode: false, // Facebook-like distraction free mode
+      });
+
+      gitalk.render("gitalk-container");
+    </script>
   </body>
 </html>
