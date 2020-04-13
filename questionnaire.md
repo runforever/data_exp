@@ -177,3 +177,12 @@ plt.show()
 1. 展示了使用 pandas 对于数据分析的一般过程。
 2. 关于 pandas API 的使用，展示了 value_counts 函数的用法和如何使用 pandas 画饼图、条形图、直方图。
 3. 关于 31 个人填写问卷的样本能否代表总体情况的问题，根据统计学的中心极限定理：一个大型样本的正确抽样与其所代表的群体存在相似关系，只好先假设这是正确抽样了，也欢迎更多的人填写问卷，然后我坐等打脸。
+
+**源码位于**：[https://github.com/runforever/data_exp/blob/master/src/questionnaire.ipynb](https://github.com/runforever/data_exp/blob/master/src/questionnaire.ipynb)
+
+## 编辑文章使用的工具
+1. [docsify](https://docsify.js.org/#/zh-cn/)
+2. markdown
+3. VSCode
+4. 上传图片工具 [iDrag](https://github.com/runforever/iDrag)
+5. Mac
