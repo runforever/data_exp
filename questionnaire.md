@@ -180,9 +180,14 @@ plt.show()
 
 **源码位于**：[https://github.com/runforever/data_exp/blob/master/src/questionnaire.ipynb](https://github.com/runforever/data_exp/blob/master/src/questionnaire.ipynb)
 
-## 编辑文章使用的工具
+**调查问卷地址**：[https://jinshuju.net/f/N2YpNI](https://jinshuju.net/f/N2YpNI)
+
+**编辑文章使用的工具**：<br/>
 1. [docsify](https://docsify.js.org/#/zh-cn/)
 2. markdown
 3. VSCode
 4. 上传图片工具 [iDrag](https://github.com/runforever/iDrag)
 5. Mac
+
+## 风险提示
+本文分析过程和结论尽可能科学和客观，如有不严谨的地方，还望多指教。
