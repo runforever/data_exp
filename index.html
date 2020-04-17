@@ -52,6 +52,7 @@
     <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
     <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
     <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
     <script>
       const gitalk = new Gitalk({
         clientID: "8bb4a5c3c9ac9d672945",
@@ -62,6 +63,15 @@
         id: location.hash, // Ensure uniqueness and length less than 50
         distractionFreeMode: false, // Facebook-like distraction free mode
       });
+    </script>
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a8a6b650f1f84933ed2ace8e852bd970";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
     </script>
   </body>
 </html>
