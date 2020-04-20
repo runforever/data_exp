@@ -2,7 +2,7 @@
 
 *作者：奔跑的青椒*<br />
 *出处：知识星球【涛哥聊 Python】*<br />
-*原文链接：【数据漫游系列文章】[https://www.defcoding.com/data/#/questionnaire](https://www.defcoding.com/data/#/questionnaire)*
+*原文链接：【数据漫游系列文章】[https://www.defcoding.com/data#/futures_entrance](https://www.defcoding.com/data#/futures_entrance)*
 
 > 对交易市场进行分析时，常常使用两种工具，技术分析和基本面分析，技术分析有多种价格指标，使用看起来高大上的指标进行交易能提高盈利的胜率吗？
 
