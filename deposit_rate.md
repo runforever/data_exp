@@ -2,7 +2,6 @@
 
 *作者：奔跑的青椒*<br />
 *出处：知识星球【涛哥聊 Python】*<br />
-*编辑中*
 
 ### 银行存款利率
 数据源自：[招商银行存款利率](https://www.cmbchina.com/CmbWebPubInfo/CDRate.aspx?chnl=cdrate)。
@@ -56,11 +55,102 @@
 #### 问题来了
 银行存款利率固定，所见即所得，货币基金的两个指标都是变化的，如何公平的对比其中的收益呢？
 
-未来我们无法预测，货币基金的历史收益数据是不会改变的，通过历史收益数据进行对比也许能给我们一些启示。
+我们无法预测未来，通过对比存款和货币基金的历史收益也许能给我们一些启示。
 
 ### 对比
+方案：拿大家可以很方便买到的余额宝来做对比，不是为余额宝打广告，余额宝收益没有其他银行货币基金收益高，我没有放一分钱在余额宝，只是纯粹想找一个大家熟知的且收益一般的理财产品做对比，时间从 2014 年开始。
+
+收益数据源来自：[聚宽数据 JQData](https://www.joinquant.com/help/api/help?name=JQData#%E5%9C%BA%E5%A4%96%E5%9F%BA%E9%87%91%E6%95%B0%E6%8D%AE)<br />
+工具：VSCode、Jupyter
+
+#### 代码实现
+```python
+import datetime
+from dateutil.relativedelta import relativedelta
+
+from jqdatasdk import finance
+
+
+def get_profit(years=1):
+    min_start_date = datetime.datetime(2014, 1, 1)
+    max_start_date = datetime.datetime(2020, 1, 1)
+
+    for idx, i in enumerate(range(0, 6)):
+        profit_start_date = min_start_date + relativedelta(years=idx)
+        profit_end_date = profit_start_date + relativedelta(years=years)
+        if profit_end_date > max_start_date:
+            break
+
+        start_df = finance.run_query(query(finance.FUND_NET_VALUE).filter(finance.FUND_NET_VALUE.code=='000198', finance.FUND_NET_VALUE.day>profit_start_date.strftime('%Y-%m-%d')).limit(1))
+        end_df = finance.run_query(query(finance.FUND_NET_VALUE).filter(finance.FUND_NET_VALUE.code=='000198', finance.FUND_NET_VALUE.day<profit_end_date.strftime('%Y-%m-%d')).order_by(finance.FUND_NET_VALUE.day.desc()).limit(1))
+        start_sum_value = start_df.iloc[0].sum_value
+        end_sum_value = end_df.iloc[0].sum_value
+        profit = (end_sum_value - start_sum_value) / start_sum_value
+        print(profit_start_date.strftime('%Y-%m-%d'), profit_end_date.strftime('%Y-%m-%d'), round(profit * 100, 2))
+
+print(get_profit(1))
+print(get_profit(3))
+print(get_profit(5))
+```
+
+输出：
+
+```python
+2014-01-01 2015-01-01 4.54
+2015-01-01 2016-01-01 3.33
+2016-01-01 2017-01-01 2.22
+2017-01-01 2018-01-01 3.37
+2018-01-01 2019-01-01 2.87
+2019-01-01 2020-01-01 1.92
+None
+2014-01-01 2017-01-01 10.45
+2015-01-01 2018-01-01 9.2
+2016-01-01 2019-01-01 8.72
+2017-01-01 2020-01-01 8.4
+None
+2014-01-01 2019-01-01 17.49
+2015-01-01 2020-01-01 14.52
+None
+```
+
+#### 一年收益率对比
+|       | 2014 ~ 2015 | 2015 ~ 2016 | 2016 ~ 2017 | 2017 ~ 2018 | 2018 ~ 2019 |  2019 ~ 2020 |
+| ----   |     ----   |   ----      |   ----      |   ----       |  ----      |    ----      |
+| 余额宝 | 4.54      |    3.33     |    2.22     |   3.37       |  2.87       |   1.92      |
+| 活期存款 | 0.3      |   0.3       |    0.3     |    0.3       |   0.3       |    0.3       |
+| 一年定期（整存整取） |  1.75   | 1.75   |    1.75   |  1.75   |  1.75    | 1.75    |
+
+*利率单位为 % / 年*
+
+#### 三年收益率对比
+|      | 2014 ~ 2017 | 2015 ~ 2018 | 2016 ~ 2019 | 2017 ~ 2020 |
+| ---- |    ----     |     ----    |    ----     |     ----    |
+| 余额宝 |  10.45     |    9.2      |    8.72     |    8.4      |
+| 活期存款| 0.9       |    0.9      |     0.9     |     0.9     |
+| 三年定期（整存整取） | 2.75  | 2.75  | 2.75  | 2.75 |
+
+*利率单位为 % / 年*
+
+活期收益率计算方法：假设钱一直存在银行，银行每年按照 0.3% 利率付利息，按照复利公式计算，复利公式如下：
+
+>> FV = PV * (1 + r)^n >>
+
+*FV 为终值，PV 为现值，r 为利率，n 为年限*
+
+#### 五年收益率对比
+|    | 2014 ~ 2019 | 2015 ~ 2020 |
+| ---- | ----      | ----        |
+| 余额宝 | 17.49    |    14.52    |
+| 活期  | 1.5      |   1.5      |
+| 五年定期（整存整取） |  2.75  | 2.75 |
+
+*利率单位为 % / 年*
 
 ### 结论
+1. 无论是一年、三年还是五年，货币基金优势明显，货币基金收益相比活期存款收益基本高了近 10 倍，闲钱放货币基金显然是更好的选择。
+2. 银行存款利率最高为三年和五年定期（整存整取）2.75%，相比货币基金来说也没有优势，收益不算高，钱还被银行锁定了流动性。
+3. 怎么选货币基金，不想麻烦的直接丢余额宝，愿意折腾的打开你的银行 App 查看货币基金收益，看看近几年的收益率曲线，尽量选择收益率曲线平滑的基金。
+4. 货币基金有风险，可以将闲钱分散放到不同的货币基金中分散风险。
 
 ### 风险提示
 本文分析过程和结论尽可能科学和客观，如有不严谨的地方，还望多指教。
