@@ -6,3 +6,4 @@
 * [活期存款的收益和货币基金收益差距有多大？](deposit_rate.md)
 * [如何提问](question.md)
 * [知识星球介绍](business.md)
+* [蜀ICP备16025642号-2](https://beian.miit.gov.cn/)
