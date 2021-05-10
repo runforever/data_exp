@@ -1,8 +1,6 @@
 # 中国期货市场用技术指标进场能给提高胜率吗？
 
 *作者：奔跑的青椒*<br />
-*出处：知识星球【涛哥聊 Python】*<br />
-*原文链接：【数据漫游系列文章】[https://www.defcoding.com/data#/futures_entrance](https://www.defcoding.com/data#/futures_entrance)*
 
 > 对交易市场进行分析时，常常使用两种工具，技术分析和基本面分析，技术分析有多种价格指标，使用看起来高大上的指标进行交易能提高盈利的胜率吗？
 
@@ -58,23 +56,23 @@
 ### 结果汇总
 #### 随机进场策略统计结果汇总
 **随机进场持仓 5 天胜率统计**<br/>
-![随机 5 天](http://cdn.defcoding.com/DA1FECFA-9B1D-425C-9C11-DD96E5AFFA3B.png)
+![随机 5 天](../webimage/DA1FECFA-9B1D-425C-9C11-DD96E5AFFA3B.png)
 
 **随机进场持仓 10 天胜率统计**<br/>
-![随机 10 天](http://cdn.defcoding.com/687FBD0A-407C-4ACE-9B29-76254EB29E8D.png)
+![随机 10 天](../webimage/687FBD0A-407C-4ACE-9B29-76254EB29E8D.png)
 
 **随机进场持仓 20 天胜率统计**<br/>
-![随机 20天](http://cdn.defcoding.com/9F773EE3-AEDA-4FF2-AE8F-1D1B8657101A.png)
+![随机 20天](../webimage/9F773EE3-AEDA-4FF2-AE8F-1D1B8657101A.png)
 
 #### 所有策略统计结果汇总
 **所有策略持仓 5 天结果汇总**<br/>
-![汇总 5天](http://cdn.defcoding.com/00973CEC-A782-4157-AEDC-D9D9F981C4A2.png)
+![汇总 5天](../webimage/00973CEC-A782-4157-AEDC-D9D9F981C4A2.png)
 
 **所有策略持仓 10 天果汇总**<br/>
-![汇总 10天](http://cdn.defcoding.com/934D8298-58BB-4DBA-8BAE-915CCDCDA97E.png)
+![汇总 10天](../webimage/934D8298-58BB-4DBA-8BAE-915CCDCDA97E.png)
 
 **所有策略持仓 20 天结果汇总**<br/>
-![汇总 20天](http://cdn.defcoding.com/C692349D-3818-44F8-A1D3-3F033CCA4FCB.png)
+![汇总 20天](../webimage/C692349D-3818-44F8-A1D3-3F033CCA4FCB.png)
 
 ### 结论
 1. 通过汇总结果对比胜率，所有策略的胜率都在 50% 左右，和抛硬币没有什么区别，未参数调优的技术指标进场并不能带来胜率的提升。

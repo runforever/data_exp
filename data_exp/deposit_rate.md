@@ -1,8 +1,6 @@
 # 存款的收益和货币基金收益差距有多大？
 
 *作者：奔跑的青椒*<br />
-*出处：知识星球【涛哥聊 Python】*<br />
-*原文链接：https://www.defcoding.com/data#/deposit_rate*
 
 ### 银行存款利率
 数据源自：[招商银行存款利率](https://www.cmbchina.com/CmbWebPubInfo/CDRate.aspx?chnl=cdrate)。

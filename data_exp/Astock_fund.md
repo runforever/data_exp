@@ -1,8 +1,6 @@
 # A股中股票型基金也只有 10% 的基金赚钱吗？
 
 *作者：奔跑的青椒*<br />
-*出处：知识星球【涛哥聊 Python】*<br />
-*原文链接：【数据漫游系列文章】[https://www.defcoding.com/data#/Astock_fund](https://www.defcoding.com/data#/Astock_fund)*
 
 > 交易市场存在一句话，交易市场中 70% 的人亏钱，20% 的人不亏不赚，10% 的人赚钱，交易市场的玩家有散户、机构和游资，这当中机构和游资属于市场中的优秀玩家，优秀玩家是否也是只有 10% 的人赚钱呢？
 
@@ -163,7 +161,7 @@ print('样本总数: %s, 亏损数: %s, 盈利数: %s, 亏损比例: %s, 盈利�
 random_result.profit.hist(bins=50)
 ```
 
-![收益直方图](http://cdn.defcoding.com/8C24CA16-940D-49E9-A463-60F06EA63C5A.png)
+![收益直方图](../webimage/8C24CA16-940D-49E9-A463-60F06EA63C5A.png)
 
 9. 盈利基金每年的平均收益
 
